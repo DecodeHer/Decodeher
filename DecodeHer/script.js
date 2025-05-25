@@ -20,7 +20,7 @@ sentencelist.addEventListener("click", function (e) {
         if (translations[phrase]) {
             result.textContent = translations[phrase];
         } else {
-            result.textContent = "Desculpa, não há tradução disponível.";
+            result.textContent = "Desculpa, não há tradução disponível";
         }
     }
 });
