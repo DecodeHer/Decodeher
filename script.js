@@ -153,15 +153,15 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     const email = document.getElementById("emailInput").value;
     const password = document.getElementById("passwordInput").value;
+    const user = {
+    email: email,
+    password: password
+    }     
+    const userReg = JSON.parse(localStorage.getItem("userReg"));
 
-    if(email === "teste@decodeher.com" && password === "1234") {
+    if(user.email === userReg.email && user.password === userReg.password) {
         alert("Login bem-sucedido! ✅");
 
-        const user = {
-            email: email,
-            password: password
-        } 
-    
         localStorage.setItem("user", JSON.stringify(user));
         loginSection.style.display = "none";
         appSection.style.display = "block";
@@ -171,9 +171,55 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     }
 });
 
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const emailReg = document.getElementById("emailInputReg").value;
+    const passwordReg = document.getElementById("passwordInputReg").value;
+    const passwordCheck = document.getElementById("passwordInputRegConfirm").value;
+    
+    if(passwordReg == passwordCheck) {
+        alert("Registrado com sucesso! ✅");
+        const userReg = {
+        email: emailReg,
+        password: passwordCheck
+        } 
+
+        localStorage.setItem("userReg", JSON.stringify(userReg));
+        loginSection.style.display = "block";
+        appSection.style.display = "none";
+        registerSection.style.display = "none";
+    } else {
+        alert("Palavra-passes diferentes ❌");
+        appSection.style.display = "none";
+        loginSection.style.display = "none";
+    }
+
+});
+
 const loginSection = document.getElementById("login");
 const appSection = document.getElementById("app");
 const profileSection = document.getElementById("profileSection");
+
+function updateUserCirclePic() {
+    const savedPic = localStorage.getItem('profilePicture'); // save it here
+    if (savedPic) {
+        const userCircle = document.getElementById('userCircle');
+        let img = userCircle.querySelector('img'); // check if img already exists
+
+        if (!img) {
+            img = document.createElement('img');
+            userCircle.querySelector('i').remove();
+            userCircle.appendChild(img);
+        }
+        
+        img.src = savedPic;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.borderRadius = "50%";
+        img.style.objectFit = "cover";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
     const storedUser = localStorage.getItem("user");
@@ -182,6 +228,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log("Logged in as:", user.email);
         loginSection.style.display = "none";
         appSection.style.display = "block";
+        registerSection.style.display = "none";
     } else {
         loginSection.style.display = "block";
         appSection.style.display = "none";
@@ -207,9 +254,10 @@ document.getElementById('settingsBtn').addEventListener('click', () => {
   // open settings
 });
 
-document.getElementById('logoutBtn').addEventListener('click', () => {
+document.getElementById('logoutBtn').addEventListener('click', (event) => {
         loginSection.style.display = "block";
         appSection.style.display = "none";
+        event.preventDefault();
 });
 
 document.getElementById('uploadPicture').addEventListener('change', (event) => {
@@ -255,25 +303,15 @@ img.style.height = "100%";
 img.style.borderRadius = "50%";
 img.style.objectFit = "cover";
 
-function updateUserCirclePic() {
-    const savedPic = localStorage.getItem('profilePicture'); // save it here
-    if (savedPic) {
-        const userCircle = document.getElementById('userCircle');
-        let img = userCircle.querySelector('img'); // check if img already exists
+const registerSection = document.getElementById("register");
 
-        if (!img) {
-            img = document.createElement('img');
-            userCircle.querySelector('i').remove();
-            userCircle.appendChild(img);
-        }
-        
-        img.src = savedPic;
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.borderRadius = "50%";
-        img.style.objectFit = "cover";
-    }
-}
+document.getElementById('goToRegister').addEventListener('click', () => {
+    loginSection.style.display = "none";
+    appSection.style.display = "none";
+    registerSection.style.display = "block";
+});
+
+
 
 
 

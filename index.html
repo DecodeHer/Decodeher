@@ -94,6 +94,27 @@
             </section>
     </section>
 
+    <!--Register Section-->
+    <section id="register" class="container text-center p-4" style="display: block;">
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="emailReg" class="form-label">Email</label>
+                <input type="email" id="emailInputReg" class="form-control" placeholder="Enter your email">
+            </div>
+
+            <div class="mb-3">
+                <label for="passwordReg" class="form-label">Password</label>
+                <input type="password" id="passwordInputReg" class="form-control" placeholder="Enter your password">
+            </div>
+
+            <div class="mb-3">
+                <input type="password" id="passwordInputRegConfirm" class="form-control" placeholder="Confirm your password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </section>
+
     <!--Login Section-->
     <section id="login" class="container text-center p-4" style="display: none;">
         <form id="loginForm">
@@ -107,7 +128,8 @@
                 <input type="password" id="passwordInput" class="form-control" placeholder="Enter your password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Iniciar Sessão</button>
+            <a href="#" id="goToRegister">Ainda não tens conta? Registrar agora.</a>
         </form>
     </section>
 
