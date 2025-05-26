@@ -254,10 +254,9 @@ document.getElementById('settingsBtn').addEventListener('click', () => {
   // open settings
 });
 
-document.getElementById('logoutBtn').addEventListener('click', (event) => {
+document.getElementById('logoutBtn').addEventListener('click', () => {
         loginSection.style.display = "block";
         appSection.style.display = "none";
-        event.preventDefault();
 });
 
 document.getElementById('uploadPicture').addEventListener('change', (event) => {
@@ -309,6 +308,20 @@ document.getElementById('goToRegister').addEventListener('click', () => {
     loginSection.style.display = "none";
     appSection.style.display = "none";
     registerSection.style.display = "block";
+});
+
+window.addEventListener("load", function () {
+  const user = JSON.parse(localStorage.getItem("user"));
+  
+  if (user) {
+    loginSection.style.display = "none";
+    registerSection.style.display = "none";
+    appSection.style.display = "block";
+  } else {
+    loginSection.style.display = "block";
+    registerSection.style.display = "none";
+    appSection.style.display = "none";
+  }
 });
 
 
