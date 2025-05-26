@@ -195,12 +195,14 @@ ul {
     width: 100%;
 }
 
+/*
 .dropdown-menu {
   display: none !important;
 }
 .dropdown-menu.show {
   display: block !important;
 }
+*/
 
 .card {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -211,7 +213,7 @@ ul {
 }
 
 #uploadPicture {
-    display: none;
+    display: none !important;
 }
 
 #profileSection {

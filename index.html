@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DecodeHer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv5lF4pTk6kxxbxJQc1qLgIDbb7z7NK/REhDRPv1Z6D88dL7g5QGTy1nbmS" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
@@ -39,8 +39,8 @@
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userCircle">
                 <li><a class="dropdown-item" href="#" id="profileBtn">Perfil</a></li>
-                <li><a class="dropdown-item" href="#" id="settingsBtn">Definições</a></li>
-                <li><a class="dropdown-item" href="#" id="logoutBtn">Terminar Sessão</a></li>
+                <!--<li><a class="dropdown-item" href="#" id="settingsBtn">Definições</a></li>-->
+                <li><a class="dropdown-item" href="#" id="logoutBtn">Sair</a></li>
                 </ul>
             </div>
     
@@ -139,13 +139,16 @@
             <h2 class="text-center mb-4">Perfil</h2>
             <img id="profilePicture" src="https://via.placeholder.com/150" alt="Foto de perfil" class="rounded-circle d-block mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
             <p class="text-center mb-3">Escolher nova foto</p>
-            <input type="file" id="uploadPicture" class="d-block mx-auto">
-            <button id="uploadBtn" class="btn btn-primary">Carregar</button>
-            <button id="returnBtn" class="btn btn-primary">Voltar</button>
+            
+            <div class="text-center mt-3">
+                <input type="file" id="uploadPicture" class="d-block mx-auto" style="display: none;">
+                <button id="uploadBtn" class="btn btn-primary">Carregar</button>
+                <button id="returnBtn" class="btn btn-primary">Voltar</button>
+            </div>
         </div>
     </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

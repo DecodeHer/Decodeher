@@ -250,9 +250,8 @@ document.getElementById('returnBtn').addEventListener('click', (event) => {
     profileSection.style.display = "none";
 });
 
-document.getElementById('settingsBtn').addEventListener('click', () => {
-  // open settings
-});
+//document.getElementById('settingsBtn').addEventListener('click', () => {
+//});
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
         loginSection.style.display = "block";
