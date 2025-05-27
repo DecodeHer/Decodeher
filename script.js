@@ -147,16 +147,16 @@ document.querySelector(".btn-warning").addEventListener("click", function() {
     showSection('favourites'); // Show the favourites section
 });
 
-
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault(); //stops the page from refreshing
-
+ 
     const email = document.getElementById("emailInput").value;
     const password = document.getElementById("passwordInput").value;
     const user = {
     email: email,
     password: password
-    }     
+    } 
+
     const userReg = JSON.parse(localStorage.getItem("userReg"));
 
     if(user.email === userReg.email && user.password === userReg.password) {
@@ -250,12 +250,15 @@ document.getElementById('returnBtn').addEventListener('click', (event) => {
     profileSection.style.display = "none";
 });
 
-//document.getElementById('settingsBtn').addEventListener('click', () => {
-//});
+/*
+document.getElementById('settingsBtn').addEventListener('click', () => {
+});
+*/
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
         loginSection.style.display = "block";
         appSection.style.display = "none";
+        localStorage.removeItem("user");
 });
 
 document.getElementById('uploadPicture').addEventListener('change', (event) => {
@@ -294,12 +297,14 @@ if (savedPic) {
   img.src = savedPic;
 }
 
+/*
 document.getElementById('userCircle').querySelector('i').remove();
 userCircle.appendChild(img);
 img.style.width = "100%";
 img.style.height = "100%";
 img.style.borderRadius = "50%";
 img.style.objectFit = "cover";
+*/
 
 const registerSection = document.getElementById("register");
 
