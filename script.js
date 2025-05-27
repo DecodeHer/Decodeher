@@ -177,22 +177,29 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     const emailReg = document.getElementById("emailInputReg").value;
     const passwordReg = document.getElementById("passwordInputReg").value;
     const passwordCheck = document.getElementById("passwordInputRegConfirm").value;
+    const existingUserReg = JSON.parse(localStorage.getItem("userReg"));
     
-    if(passwordReg == passwordCheck) {
-        alert("Registrado com sucesso! ✅");
+    if(!emailReg || !passwordReg || !passwordCheck) {
+        alert("Coloque um email e palavra-passe");
+        return;
+    }
+    if(existingUserReg && emailReg === existingUserReg.email) {
+        alert("Esse email já está a ser utilizado em uma conta.");
+        return;
+    }
+    if(passwordReg !== passwordCheck) {
+        alert("Palavra-passes diferentes ❌");
+        return;
+    } else {
         const userReg = {
-        email: emailReg,
-        password: passwordCheck
-        } 
-
+            email: emailReg,
+            password: passwordReg
+        };
         localStorage.setItem("userReg", JSON.stringify(userReg));
+        alert("Registrado com sucesso! ✅");
         loginSection.style.display = "block";
         appSection.style.display = "none";
         registerSection.style.display = "none";
-    } else {
-        alert("Palavra-passes diferentes ❌");
-        appSection.style.display = "none";
-        loginSection.style.display = "none";
     }
 
 });
