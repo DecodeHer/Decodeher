@@ -13,10 +13,8 @@ sentencelist.addEventListener("click", function (e) {
         // Get the phrase by selecting the first child of the <li> (the phrase text)
         const phrase = e.target.firstChild.textContent.trim(); // Only grab the text node part
 
-        // Show the result section
         result.style.display = "block";
 
-        // Check if there's a translation for the sentence
         if (translations[phrase]) {
             result.textContent = translations[phrase];
         } else {
@@ -26,12 +24,10 @@ sentencelist.addEventListener("click", function (e) {
 });
 
 function showSection(sectionId) {
-    // Hide all sections
     document.querySelectorAll("#app section").forEach(section => {
         section.style.display = "none";
     });
 
-    // Show the selected section
     const newSection = document.getElementById(sectionId);
     if (newSection) {
         newSection.style.display = "block"; // Use block for vertical layout
@@ -43,7 +39,7 @@ function showSection(sectionId) {
     }
 
     if (sectionId === "translations") {
-        result.style.display = "none";   // Hide the translation result
+        result.style.display = "none"; 
         result.textContent = "";         // Clear the old translation
     }
 }
@@ -70,7 +66,7 @@ document.querySelectorAll(".favorite-btn").forEach(button => {
             alert("Frase adicionada aos favoritos ⭐");
         }
 
-        updateFavouritesUI(); // Update the list
+        updateFavouritesUI();
     });
 });
 
@@ -88,7 +84,6 @@ function updateFavouritesUI() {
             const li = document.createElement("li");
             li.classList.add("p-3", "mb-2", "bg-light", "border", "rounded", "d-flex", "justify-content-between", "align-items-center");
 
-            // Text content for the sentence
             const sentenceText = document.createElement("span");
             sentenceText.textContent = phrase;
             li.appendChild(sentenceText);
@@ -112,19 +107,16 @@ function removeFromFavorites(phrase) {
     // Filter out the phrase from the favourites list
     favourites = favourites.filter(fav => fav !== phrase);
 
-    // Save the updated list back to localStorage
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
     alert("Frase removida dos favoritos.");
     
-    // Update the UI to reflect the removal
     updateFavouritesUI();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    updateFavouritesUI(); // still update the favourites list
+    updateFavouritesUI();
 
-    // Set star icons on load to reflect current favourites
     const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
     document.querySelectorAll(".favorite-btn").forEach(button => {
@@ -144,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Add event listener to "Ver Favoritos" button
 document.querySelector(".btn-warning").addEventListener("click", function() {
-    showSection('favourites'); // Show the favourites section
+    showSection('favourites');
 });
 
 document.getElementById("loginForm").addEventListener("submit", function(event) {
@@ -209,7 +201,7 @@ const appSection = document.getElementById("app");
 const profileSection = document.getElementById("profileSection");
 
 function updateUserCirclePic() {
-    const savedPic = localStorage.getItem('profilePicture'); // save it here
+    const savedPic = localStorage.getItem('profilePicture');
     if (savedPic) {
         const userCircle = document.getElementById('userCircle');
         let img = userCircle.querySelector('img'); // check if img already exists
